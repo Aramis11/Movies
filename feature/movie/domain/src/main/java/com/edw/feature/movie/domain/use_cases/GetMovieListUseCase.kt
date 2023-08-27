@@ -9,9 +9,9 @@ import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 class GetMovieListUseCase @Inject constructor(private val movieRepository: IMovieRepository) {
-    operator fun invoke(apikey: String, movieName: String) = flow {
+    operator fun invoke(movieName: String) = flow {
         emit(UiEvent.Loading())
-        emit(UiEvent.Success(movieRepository.getMovieList(apikey, movieName)))
+        emit(UiEvent.Success(movieRepository.getMovieList(movieName)))
     }.catch {
         emit(UiEvent.Error(it.message.toString()))
     }.flowOn(Dispatchers.IO)
