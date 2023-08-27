@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 class MovieRepositoryImpl @Inject constructor(private val movieDataProvider: MovieDataProvider) :
     IMovieRepository {
-    override suspend fun getMovieList(apiKey: String, movieName: String): List<Movie> {
-        return movieDataProvider.getMovieList(apiKey, movieName).toDomainMovieList()
+    override suspend fun getMovieList(movieName: String): List<Movie> {
+        return movieDataProvider.getMovieList(movieName).toDomainMovieList()
     }
 }
