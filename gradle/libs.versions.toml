@@ -78,3 +78,4 @@ nl-littlerobots-version-catalog-update = "nl.littlerobots.version-catalog-update
 com-google-dagger-hilt-android = "com.google.dagger.hilt.android:2.47"
 com-android-library811 = { id = "com.android.library", version.ref = "agp" }
 org-jetbrains-kotlin-android1810 = { id = "org.jetbrains.kotlin.android", version.ref = "org-jetbrains-kotlin-android" }
+
