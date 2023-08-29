@@ -28,12 +28,14 @@ android {
             )
         }
     }
+
+
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_18
+        targetCompatibility = JavaVersion.VERSION_18
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "18"
     }
 }
 
@@ -46,10 +48,10 @@ dependencies {
     androidTestImplementation(libs.androidx.test.ext.junit115)
     androidTestImplementation(libs.espresso.core)
 
-    //DaggerHilt
+    //Dagger
     implementation(libs.dagger.hilt)
-    implementation(libs.dagger.hilt.compiler)
-    implementation(libs.androidx.hilt.compiler)
+    kapt (libs.dagger.hilt.compiler)
+    kapt (libs.androidx.hilt.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
 
     //Retrofit
