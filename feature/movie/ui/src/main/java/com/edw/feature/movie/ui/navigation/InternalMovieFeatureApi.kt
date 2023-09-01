@@ -1,12 +1,14 @@
 package com.edw.feature.movie.ui.navigation
 
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.edw.core.common.navigation_constants.MovieFeature
 import com.edw.core.feature_api.IFeatureApi
-import com.edw.feature.movie.ui.Greeting
+import com.edw.feature.movie.ui.screen.MovieScreen
+import com.edw.feature.movie.ui.screen.MovieSearchViewModel
 
 internal object InternalMovieFeatureApi : IFeatureApi {
     override fun registerGraph(
@@ -18,7 +20,7 @@ internal object InternalMovieFeatureApi : IFeatureApi {
             route = MovieFeature.nestedRoute
         ) {
             composable(MovieFeature.movieScreenRoute) {
-                Greeting("from InternalMovieFeatureApi ")
+                MovieScreen(viewModel = hiltViewModel<MovieSearchViewModel>())
             }
         }
     }
