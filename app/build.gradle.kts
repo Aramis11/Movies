@@ -17,9 +17,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary = true
-        }
+       
     }
 
     buildTypes {
@@ -55,6 +53,8 @@ dependencies {
 
     implementation(project(mapOf("path" to ":feature:movie:ui")))
     implementation(project(mapOf("path" to ":core:common")))
+    implementation(project(mapOf("path" to ":feature:movie:domain")))
+    implementation(project(mapOf("path" to ":feature:movie:data")))
     implementation(project(mapOf("path" to ":core:feature_api")))
 
     implementation("androidx.core:core-ktx:1.9.0")

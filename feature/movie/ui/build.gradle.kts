@@ -15,6 +15,9 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+        vectorDrawables {
+            useSupportLibrary = true
+        }
     }
 
     buildTypes {
@@ -41,16 +44,26 @@ android {
     kotlinOptions {
         jvmTarget = "18"
     }
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
 }
 
 dependencies {
 
     implementation(project(mapOf("path" to ":core:feature_api")))
     implementation(project(mapOf("path" to ":core:common")))
+    implementation(project(mapOf("path" to ":feature:movie:domain")))
 
     implementation(libs.androidx.core.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+    implementation(libs.androidx.lifecycle)
+    implementation(libs.activity.compose)
+    implementation(platform(libs.compose.bom))
+    implementation(libs.androidx.compose.ui.ui.tooling.preview)
     testImplementation(libs.junit.junit)
     androidTestImplementation(libs.androidx.test.ext.junit115)
     androidTestImplementation(libs.espresso.core)
@@ -64,7 +77,14 @@ dependencies {
 
     //Dagger
     implementation(libs.dagger.hilt)
+    androidTestImplementation(platform(libs.compose.bom))
+    androidTestImplementation(libs.androidx.compose.ui.ui.test.junit4)
+    debugImplementation(libs.androidx.compose.ui.ui.tooling)
+    debugImplementation(libs.androidx.compose.ui.ui.test.manifest)
     kapt (libs.dagger.hilt.compiler)
     kapt (libs.androidx.hilt.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
+
+    //coil
+    implementation(libs.coil.compose)
 }
