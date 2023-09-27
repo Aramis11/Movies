@@ -20,7 +20,7 @@ internal object InternalMovieFeatureApi : IFeatureApi {
             route = MovieFeature.nestedRoute
         ) {
             composable(MovieFeature.movieScreenRoute) {
-                MovieScreen(viewModel = hiltViewModel<MovieSearchViewModel>())
+                MovieScreen(viewModel = hiltViewModel<MovieSearchViewModel>(), navController)
             }
         }
     }

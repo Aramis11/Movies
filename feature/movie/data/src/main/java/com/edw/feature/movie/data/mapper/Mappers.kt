@@ -5,7 +5,7 @@ import com.edw.feature.movie.domain.model.Movie
 
 fun MovieListResponse.toDomainMovieList(): List<Movie> {
     return this.results.map {
-        Movie(makeUrl(it.poster_path))
+        Movie(makeUrl(it.poster_path), it.id.toString())
     }
 }
 
